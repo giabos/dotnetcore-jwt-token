@@ -52,12 +52,12 @@ namespace dncore_auth.Controllers
 
 
         [Authorize]
-        public IActionResult Protected ()
+        public IActionResult Protected()
         {
             //Console.WriteLine("1", ClaimsPrincipal.Current);
             //Console.WriteLine("2", ClaimsPrincipal.Current.Claims);
 
-            return Json(User.Claims.Select(c => c.Type + ":" + c.Value).ToList()); 
+            return Json(User.Claims.Select(c => c.Type + ":" + c.Value).ToList());
         }
 
 
@@ -79,9 +79,9 @@ namespace dncore_auth.Controllers
 
                 var claims = new[]
                 {
-            new Claim(JwtRegisteredClaimNames.Sub, loginViewModel.Username),
-            new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
-        };
+                    new Claim(JwtRegisteredClaimNames.Sub, loginViewModel.Username),
+                    new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
+                };
 
                 var token = new JwtSecurityToken
                 (
