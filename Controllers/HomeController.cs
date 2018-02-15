@@ -60,6 +60,14 @@ namespace dncore_auth.Controllers
             return Json(User.Claims.Select(c => c.Type + ":" + c.Value).ToList());
         }
 
+         
+        [AllowAnonymous]
+        [Route("/test")]
+        public IActionResult Test()
+        {
+             return Ok(new { test = _configuration["param1"]});
+        }
+
 
         [AllowAnonymous]
         [HttpPost]
